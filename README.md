@@ -1,132 +1,58 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h1 align="center">Developer's Portfolio ✨</h1>
+# Ray Toh | Software Engineer Portfolio ✨
 
-  <p align="center">
-    It is a personal static website/portfolio template hosted with GitHub Pages, built to showcase my recent projects. Site URL / Demo: 
-    <a href="https://hashirshoaeb.github.io/home">hashirshoaeb.github.io/home</a>
-    <br />
-    <br />
-    <a href="https://hashirshoaeb.github.io">About Me</a>
-  </p>
-</p>
+This is my personal professional portfolio website, showcasing my experience in large-scale systems, microservices, and low-level optimizations.
 
-![GitHub contributors](https://img.shields.io/github/contributors/hashirshoaeb/home?color=ffcc66&style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/hashirshoaeb/home?color=ffcc66&style=for-the-badge)
-[![GitHub forks](https://img.shields.io/github/forks/hashirshoaeb/home?style=for-the-badge)](https://github.com/hashirshoaeb/star_book/network)
-[![GitHub issues](https://img.shields.io/github/issues/hashirshoaeb/home?color=ffcc66&style=for-the-badge)](https://github.com/hashirshoaeb/star_book/issues)
-[![GitHub license](https://img.shields.io/github/license/hashirshoaeb/home?style=for-the-badge)](https://github.com/hashirshoaeb/home/blob/master/LICENSE)
-[![Twitter Follow](https://img.shields.io/twitter/follow/hashirshoaeb?color=ffcc66&logo=twitter&logoColor=ffffff&style=for-the-badge)](https://twitter.com/hashirshoaeb)
+Built with a modern tech stack to ensure high performance, maintainability, and a polished user experience.
 
-[![Site preview](/public/social-image.png)](https://raythx.com)
+## 🛠️ Technology Stack
 
-## Table of Contents
+- **Framework**: [React 19](https://reactjs.org/)
+- **Build Tool**: [Vite 7](https://vitejs.dev/)
+- **Styling**: [Bootstrap 5](https://getbootstrap.com/) & [Sass](https://sass-lang.com/)
+- **Icons**: [Devicons](https://devicon.dev/) & [Font Awesome](https://fontawesome.com/)
+- **Animations**: [React Type Animation](https://www.npmjs.com/package/react-type-animation) & [React Vertical Timeline](https://www.npmjs.com/package/react-vertical-timeline-component)
+- **Deployment**: [GitHub Pages](https://pages.github.com/)
 
-- [Technology Stack 🛠️](#technology-stack-)
-- [Structure ⚓](#structure-)
-- [Sharing 💗](#sharing-)
-- [Prerequisites 🍪](#prerequisites-)
-- [Setup And Deployment 🔧](#setup-and-deployment-)
-- [Contributing 🙌](#contributing-)
-- [Issues](#issues)
-- [Upcoming Features / Improvements 🔗](#upcoming-features-/-improvements-)
-- [Showcase 🚀](#showcase-)
-- [Versão em Português :brazil:](#versao-em-portugues-)
+## ⚓ Structure
 
-## Technology Stack 🛠️
+- **Hero Section**: Dynamic typing introduction with social links.
+- **About Me**: Professional summary and consolidated paragraphs.
+- **Experiences**: Interactive timeline with expandable achievements on hover.
+- **Skills**: Modern grid-based tech stack visualization using official brand icons.
+- **Projects**: Highlights of key open-source work and implementations.
+- **Get In Touch**: Integrated high-impact call to action.
 
-Dependencies defined in package.json:
+## 🔧 Local Development
 
-[Reactjs](https://reactjs.org/)
-| [Bootstrap](https://getbootstrap.com/)
-| [Typist](https://github.com/jstejada/react-typist)
-| [GitHub API](https://developer.github.com/v3/repos/)
-| [Instagram API](https://www.instagram.com/developer/embedding/)
-
-## Structure ⚓
-
-- Navigation bar (optional)
-- Body
-  - Name | Profession
-  - Contact / Follow / Find me / Facebook / LinkedIn / GitHub / Instagram / Email / CodePen
-  - Resume | About me
-- About Me
-  - Display picture (optional)
-  - About myself, my Interests, Goals and Hobbies
-  - Things I'm good at (Skills)
-  - Resume button
-- Recent Projects (using GitHub API) (optional)
-- Leadership (optional)
-  - Paragraph
-  - Carousel images
-- Skills (optional)
-  - Technical Skills
-  - Soft Skills
-- Footer
-  - Footer Note (optional)
-  - Copyrights - open source
-  - Acknowledgements(
-
-## Sharing 💗
-
-Project is open source. Feel free to make your own version. All you need to do is to fork this repository, edit [src/editable-stuff/config.js](./src/editable-stuff/config.js) and add resume. Mark star ⭐ if you like the project.
-
-## Prerequisites 🍪
-
-You should have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed on your PC. You should also own a GitHub account.
-
-## Setup And Deployment 🔧
-
-1. To Get Started, Fork this repository to your GitHub account:
-2. Clone the forked repo from your account using:
-
+1. **Clone the repository**:
    ```bash
-     git clone https://github.com/<your-username>/home.git
+   git clone https://github.com/raythx98/me.git
    ```
 
-3. Open in editor and edit [src/editable-stuff/config.js](./src/editable-stuff/config.js) file.
-
-4. Add your resume as <resume.pdf> in place of [src/editable-stuff/resume.pdf](./src/editable-stuff/)
-
-5. Edit [title](./public/index.html#L34) and meta [description](./public/index.html#L13) in [public/index.html](./public/index.html).
-6. Change URL in [package.json](./package.json) file:
-
-   ```json
-    "homepage": "https://<your-username>.github.io/home"
-   ```
-
-   Or for deployment at custom domain, refer [create-react-app.dev](https://create-react-app.dev/docs/deployment/#step-1-add-homepage-to-packagejson)
-
-7. After editing run the following bash commands:
-
+2. **Install dependencies**:
    ```bash
    npm install
-   npm start
    ```
 
-8. To deploy website, run:
-
+3. **Start the development server**:
    ```bash
-    npm run build
-    npm run deploy
+   npm run dev
+   ```
+   *The site will automatically open on [http://localhost:5177](http://localhost:5177)*
+
+4. **Build for production**:
+   ```bash
+   npm run build
    ```
 
-   Or for deployment at \<username>.github.io, refer [READMEdocs/custom-deployment.md](./READMEdocs/custom-deployment.md) and [pages.js](./pages.js)
+## 🚀 Deployment
 
-9. Congrats your site is up and running. To see it live, visit:
+The site is automatically deployed to GitHub Pages via the `gh-pages` branch.
+```bash
+npm run deploy
+```
 
-   ```https
-     https://<your-username>.github.io/home
-   ```
+---
 
-10. To change the thumbnail image:
-
-    - Navigate to the "public" folder.  
-    - There you will see "social-image.png".  
-    - Delete it.   
-    - Take a screenshot of your version and rename it "social-image.png" and place it there.  
-    
-   Next time if you make changes, repeat from step 8.
-
-Facing issues? Feel free to contact at raythx98@gmail.com.
+### Acknowledgements
+Original template and inspiration by [Hashir Shoaib](https://github.com/hashirshoaeb/home). Modernized and customized by Ray Toh.

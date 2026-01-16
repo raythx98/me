@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $type-scales: (
   minor-second: 1.067,
   major-second: 1.125,
@@ -10,10 +12,12 @@ $type-scales: (
 
 $heading-type-scale-base: minor-third;
 $display-type-scale-base: minor-third;
+$font-size-display-base: null;
+$font-size-base: 1rem !default;
 
 @function check-type-scale-value($scale) {
-  @if map-has-key($type-scales, $scale) {
-    @return map-get($type-scales, $scale);
+  @if map.has-key($type-scales, $scale) {
+    @return map.get($type-scales, $scale);
   } @else if type-of($scale) == number and unitless($scale) {
     @return $scale;
   } @else {

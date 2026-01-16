@@ -1,13 +1,15 @@
-// Navigation Bar SECTION
+import profile from "./profile.png";
+import resumePdf from "./resume.pdf";
+import jenkinsIcon from "devicon/icons/jenkins/jenkins-original.svg";
+
+// 1. Navigation Bar
 const navBar = {
   show: true,
 };
 
-// Main Body SECTION
+// 2. Main Body (Hero)
 const mainBody = {
-  // gradientColors: "#AE887B, #C3C1AB, #F0DED0, #D9BFB1, #5E5946",
   gradientColors: "#4484ce, #1ad7c0, #ff9b11, #9b59b6, #ff7f7f", 
-  // #ecf0f1, 
   firstName: "Ray Toh",
   middleName: "",
   lastName: "H. X.",
@@ -18,123 +20,166 @@ const mainBody = {
       url: "https://github.com/raythx98",
     },
     {
-      image: "fa-facebook",
-      url: "https://www.facebook.com/raythx98/",
-    },
-    {
-      image: "fa-instagram",
-      url: "https://www.instagram.com/ray.thx/",
-    },
-    {
       image: "fa-linkedin",
       url: "https://www.linkedin.com/in/raythx/",
     },
   ],
 };
 
-// ABOUT SECTION
-// If you want the About Section to show a profile picture you can fill the profilePictureLink either with:
-//a) your Instagram username
-//      i.e:profilePictureLink:"johnDoe123",
-//b) a link to an hosted image
-//      i.e:profilePictureLink:"www.picturesonline.com/johnDoeFancyAvatar.jpg",
-//c) image in "editable-stuff" directory and use require("") to import here,
-//      i.e: profilePictureLink: require("../editable-stuff/hashirshoaeb.png"),
-//d) If you do not want any picture to be displayed, just leave it empty :)
-//      i.e: profilePictureLink: "",
-// For Resume either provide link to your resume or import from "editable-stuff" directory
-//     i.e resume: require("../editable-stuff/resume.pdf"),
-//         resume: "https://docs.google.com/document/d/13_PWdhThMr6roxb-UFiJj4YAFOj8e_bv3Vx9UHQdyBQ/edit?usp=sharing",
-
+// 3. About Section
 const about = {
   show: true,
   heading: "About Me",
-  imageLink: require("../assets/ray.png"),
+  imageLink: profile,
   imageSize: 375,
-  message:
-    "I am a passionate software engineer specializing in large-scale microservices and low-level optimizations." ,
-  message2:
-    "Driven by a desire to build robust and scalable systems, I am particularly drawn to the realm of large-scale microservices. I am captivated by the intricacies involved in architecting and developing software that can seamlessly handle massive workloads while maintaining high availability and fault tolerance. ",
-  message3:
-    "My passion extends to the realm of low-level optimization. I thrive on the challenge of analyzing and fine-tuning code to squeeze out every ounce of performance. It brings me great satisfaction to meticulously optimize algorithms, data structures, and system interactions.",
-  resume: require("../assets/Ray Toh CV.pdf"),
-};
-
-// PROJECTS SECTION
-// Setting up project lenght will automatically fetch your that number of recently updated projects, or you can set this field 0 to show none.
-//      i.e: reposLength: 0,
-// If you want to display specfic projects, add the repository names,
-//      i.e ["repository-1", "repo-2"]
-const repos = {
-  show: true,
-  heading: "Recent Projects",
-  gitHubUsername: "raythx98", //i.e."johnDoe12Gh"
-  reposLength: 6,
-  specificRepos: [],
-};
-
-// Leadership SECTION
-const leadership = {
-  show: false,
-  heading: "Leadership",
-  message:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus arcu bibendum at varius. Libero justo laoreet sit amet cursus sit amet. Imperdiet dui accumsan sit amet nulla facilisi morbi. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Et magnis dis parturient montes nascetur ridiculus mus mauris. In nisl nisi scelerisque eu ultrices vitae auctor. Mattis nunc sed blandit libero volutpat sed cras ornare. Pulvinar neque laoreet suspendisse interdum consectetur libero.",
-  images: [
-    { 
-      img: require("../assets/ray.png"), 
-      label: "First slide label", 
-      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum." 
-    },
-    { 
-      img: require("../assets/ray.png"), 
-      label: "Second slide label", 
-      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum." 
-    },
+  paragraphs: [
+    "I am a passionate software engineer specializing in large-scale microservices and low-level optimizations.",
+    "Driven by a desire to build robust and scalable systems, I am particularly drawn to the realm of large-scale microservices. I am captivated by the intricacies involved in architecting and developing software that can seamlessly handle massive workloads while maintaining high availability and fault tolerance.",
+    "My passion extends to the realm of low-level optimization. I thrive on the challenge of analyzing and fine-tuning code to squeeze out every ounce of performance. It brings me great satisfaction to meticulously optimize algorithms, data structures, and system interactions."
   ],
-  imageSize: {
-    width:"615",
-    height:"450"
-  }
+  resume: resumePdf,
 };
 
-// SKILLS SECTION
+// 4. Experiences Section
+const experiences = {
+  show: true,
+  heading: "Experiences",
+  data: [
+    {
+      role: 'Software Engineer',
+      company: 'Getgo Technologies, Singapore',
+      description: 'Go, C#, .Net, MySQL, Redis, Elasticsearch, gRPC, Solace, Docker, AWS',
+      date: 'Jan 2023 - Present',
+      type: 'work',
+      details: [
+        "Built a proxy server with custom rate limiting and circuit breaker capabilities, mitigating DDoS attacks on the SMS OTP API and strengthening fault tolerance.",
+        "Enhanced EV charging servers to be OCPI-compliant, reducing engineering effort to onboard new providers by 10x, enabling the company to scale to thousands of EVs with minimal operating costs.",
+        "Drove major refactoring efforts and authored a utility package to abstract common middleware and functionalities, reducing code duplication and improving consistency across repositories.",
+        "Rearchitected monolithic systems into event-driven microservices, utilizing the orchestration pattern for distributed transactions across multiple microservices, enabling engineering teams to scale and driving the formation of three cross-functional teams."
+      ]
+    },
+    {
+      role: 'Software Engineer',
+      company: 'Carousell, Singapore',
+      description: 'Go, PostgreSQL, Redis, Elasticsearch, gRPC, Kafka, Docker, Kubernetes, GCP',
+      date: 'Aug 2022 - Dec 2022',
+      type: 'work',
+      details: [
+        "Led a large-scale overhaul of product categorization, seamlessly migrating 5M+ listings with zero downtime, improving search relevance and boosting product-to-sale conversion by 15%.",
+        "Migrated endpoints from a Django monolith to Go microservices, enhancing modularity and error handling, which improved engineering productivity and reduced error rates by 5X."
+      ]
+    },
+    {
+      role: 'B.Comp (Honors) in Computer Science',
+      company: 'National University of Singapore',
+      description: 'Graduated with distinction.',
+      date: 'August 2019 - August 2022',
+      type: 'school',
+      details: [
+        "Specialized in Software Engineering, Database Systems, Computer Networking, Computer Security, and Artificial Intelligence.",
+        "Teaching Assistant for CS2100 (Computer Organisation): Conducted weekly programming exercises based on assembly language, pipelining, and logic circuits.",
+        "Teaching Assistant for CS1101S (Programming Methodology): Taught vital programming concepts such as abstraction, data structures, OOP, and dynamic programming."
+      ]
+    },
+    {
+      role: 'Software Engineer',
+      company: 'DBS Bank, Singapore',
+      description: 'Go, MariaDB, Redis, Elasticsearch, Kubernetes, OpenShift, Kafka',
+      date: 'May 2022 - August 2022',
+      type: 'work',
+      details: [
+        "Developed server and job enhancements for a proprietary Forex application using Go.",
+        "Enhanced API observability in microservices by implementing distributed tracing with Open Telemetry and Jaeger, accelerating debugging and performance optimization.",
+        "Augmented monitoring and alerting functionalities using Prometheus."
+      ]
+    },
+    {
+      role: 'Software Engineer',
+      company: 'Reluvate Technologies, Singapore',
+      description: 'Python, Django, React.js, AWS, Nginx, RESTful APIs, UAT',
+      date: 'Dec 2021 - Feb 2022',
+      type: 'work',
+      details: [
+        "Drove digital transformation by automating job matching, scheduling, and financial reconciliation processes using Django and React.js.",
+        "Facilitated UATs to formulate non-functional requirements and migrated data from legacy systems to AWS (EC2, RDS, S3).",
+        "Integrated Nginx as the web server for serving static frontend and backend API gateway."
+      ]
+    },
+  ]
+};
+
+// 5. Skills Section
 const skills = {
   show: true,
   heading: "Skills",
   languages: [
-    { name: "C++", value: 90 },
-    { name: "Go", value: 85 },
-    { name: "Python", value: 85 },
-    { name: "C#", value: 80 },
+    { name: "Go", icon: "devicon-go-original-wordmark colored" },
+    { name: "C++", icon: "devicon-cplusplus-plain colored" },
+    { name: "C# (.Net)", icon: "devicon-csharp-plain colored" },
+    { name: "Python", icon: "devicon-python-plain colored" },
   ],
   databases: [
-    { name: "PostgreSQL", value: 90 },
-    { name: "MySQL", value: 90 },
-    { name: "Redis", value: 80 },
-    { name: "Elasticsearch", value: 80 },
-    { name: "MongoDB", value: 70 },
+    { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
+    { name: "MySQL", icon: "devicon-mysql-plain colored" },
+    { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+    { name: "DynamoDB", icon: "devicon-dynamodb-plain colored" },
+    { name: "Redis", icon: "devicon-redis-plain colored" },
+    { name: "ElasticSearch", icon: "devicon-elasticsearch-plain colored" },
   ],
   technologies: [
-    { name: "Git", value: 90 },
-    { name: "AWS", value: 90 },
-    { name: "Docker", value: 85 },
-    { name: "Kubernetes", value: 80 },
-    { name: "Kafka", value: 80 },
-    { name: "Solace", value: 80 },
-    { name: "gRPC", value: 80 },
-    { name: "Google Cloud", value: 75 },
-  ],
-  frameworks: [
-    { name: ".Net 6.0", value: 90 },
-    { name: "Gin (Go HTTP)", value: 90 },
-    { name: "Gorm (Go ORM)", value: 90 },
-    { name: "Golang-migrate (Database Migration)", value: 90 },
-    { name: "React.js", value: 80 },
-    { name: "Node.js", value: 80 },
+    { name: "Git", icon: "devicon-git-plain colored" },
+    { name: "gRPC", icon: "devicon-grpc-plain colored" },
+    { name: "GraphQL", icon: "devicon-graphql-plain colored" },
+    { name: "Kafka", icon: "devicon-apachekafka-plain colored" },
+    { name: "RabbitMQ", icon: "devicon-rabbitmq-plain colored" },
+    { name: "NATS", icon: "devicon-nats-plain colored" },
+    { name: "Docker", icon: "devicon-docker-plain colored" },
+    { name: "Kubernetes", icon: "devicon-kubernetes-plain colored" },
+    { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+    { name: "GCP", icon: "devicon-googlecloud-plain colored" },
+    { name: "OCI", icon: "devicon-oracle-original colored" },
+    { name: "Jaegar", icon: "devicon-jaegertracing-plain colored" },
+    { name: "Jenkins (CI/CD)", icon: jenkinsIcon },
   ],
 };
 
-// GET IN TOUCH SECTION
+// 6. Projects Section
+const repos = {
+  show: true,
+  heading: "Projects",
+  projects: [
+    { 
+      name: "Go Dutch",
+      description: "A modern, lightweight alternative to Splitwise for managing group expenses and settling balances efficiently.",
+      languages: ["Go", "Docker", "PostgreSQL"],
+      repo_url: "https://github.com/raythx98/go-dutch",
+      demo_url: "https://raythx98.github.io/dutch/",
+    },
+    { 
+      name: "URL Shortener",
+      description: "A high-performance URL shortener service with a containerized Go backend and PostgreSQL database.",
+      languages: ["Go", "Docker", "PostgreSQL"],
+      repo_url: "https://github.com/raythx98/url-shortener",
+      demo_url: "https://raythx98.github.io/zap/",
+    },
+    { 
+      name: "GoHelpMe",
+      description: "Useful Go implementations and utilities for quick and consistent bootstrapping across microservices.",
+      languages: ["Go", "Microservices"],
+      repo_url: "https://github.com/raythx98/gohelpme",
+      demo_url: null,
+    },
+    { 
+      name: "Portfolio Website",
+      description: "My personal developer portfolio built using modern React 19, Vite 7, and Bootstrap 5.",
+      languages: ["React.js", "Vite", "Bootstrap", "Sass"],
+      repo_url: "https://github.com/raythx98/me",
+      demo_url: "https://raythx98.github.io/me/",
+    },
+  ]
+};
+
+// 7. Get In Touch Section
 const getInTouch = {
   show: true,
   heading: "Get In Touch",
@@ -143,26 +188,4 @@ const getInTouch = {
   email: "raythx98@gmail.com",
 };
 
-const experiences = {
-  show: false,
-  heading: "Experiences",
-  data: [
-    // {
-    //   role: 'Software Engineer',// Here Add Company Name
-    //   companylogo: require('../assets/img/dell.png'),
-    //   date: 'June 2018 – Present',
-    // },
-    // {
-    //   role: 'Front-End Developer',
-    //   companylogo: require('../assets/img/boeing.png'),
-    //   date: 'May 2017 – May 2018',
-    // },
-  ]
-}
-
-// Blog SECTION
-// const blog = {
-//   show: false,
-// };
-
-export { navBar, mainBody, about, repos, skills, leadership, getInTouch, experiences };
+export { navBar, mainBody, about, repos, skills, getInTouch, experiences };

@@ -1,54 +1,95 @@
 import React from "react";
-import Typist from "react-typist";
-import './style.min.css';
+import { TypeAnimation } from "react-type-animation";
 import Container from "react-bootstrap/Container";
-import Jumbotron from "react-bootstrap/Jumbotron";
 
 const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
+    
+    const scrollToAbout = (e) => {
+      e.preventDefault();
+      const element = document.getElementById("aboutme");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
     return (
-      <Jumbotron
-        fluid
+      <div
         id="home"
         style={{
-          // backgroundColor: "#ffffff",
-          background: `linear-gradient(136deg,${gradient})`,
-          backgroundSize: "1200% 1200%",
+          background: `linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)`,
+          position: "relative",
+          overflow: "hidden"
         }}
-        className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+        className="title bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
         <div id="stars"></div>
-        <Container className="text-center">
-          <h1 ref={ref} className="display-1" >
+        <Container className="text-center" style={{ zIndex: 2 }}>
+          <h1 
+            ref={ref} 
+            className="display-1 mb-4" 
+            style={{ 
+              fontWeight: "800",
+              letterSpacing: "-0.02em",
+              background: `linear-gradient(to right, #F6F1EC, #AE887B)`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}
+          >
             {title}
           </h1>
-          <Typist className="lead typist h2 mb-0 body-line-height" cursor={{ show: false }}>
-            {" "}
-            {message}
-          </Typist>
-          <div className="p-5">
+          <div className="mb-5">
+            <TypeAnimation
+              sequence={[message, 1000]}
+              speed={50}
+              className="h3 mb-0"
+              style={{ 
+                fontWeight: "400", 
+                color: "#D9BFB1",
+                opacity: 0.9
+              }}
+              repeat={0}
+              cursor={false}
+            />
+          </div>
+          <div className="social-links mb-5">
             {icons.map((icon, index) => (
               <a
                 key={`social-icon-${index}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={icon.url}
+                className="mx-3 social-icon-link"
                 aria-label={`My ${icon.image.split("-")[1]}`}
+                style={{
+                  color: "#F6F1EC",
+                  fontSize: "2rem",
+                  transition: "all 0.3s ease"
+                }}
               >
-                <i className={`fab ${icon.image}  fa-3x socialicons`} />
+                <i className={`fab ${icon.image}`} />
               </a>
             ))}
           </div>
           <a
-            className="btn btn-outline-light btn-lg"
-            href="#aboutme"
+            className="btn btn-outline-light btn-lg px-5 py-3"
+            onClick={scrollToAbout}
             role="button"
             aria-label="Learn more about me"
+            style={{
+              borderRadius: "50px",
+              fontWeight: "600",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              fontSize: "0.9rem",
+              borderWidth: "2px",
+              cursor: "pointer"
+            }}
           >
-            More about me
+            Explore My Work
           </a>
         </Container>
-      </Jumbotron>
+      </div>
     );
   }
 );

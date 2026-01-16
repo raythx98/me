@@ -1,3 +1,10 @@
+@use "sass:color";
+
+$black: #000;
+$primary-accent: #5E5946;
+$secondary-accent: #AE887B;
+$bg-light: #F6F1EC;
+
 html {
   font-size: 14px;
   @media (min-width: 768px) {
@@ -8,167 +15,168 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+// Limit content width
+.container, .container-fluid {
+  max-width: 90% !important;
 }
 
-.bgstyle {
-  /* background: linear-gradient(136deg, #1ad7c0, #8E44AD, #ff9b11, #1F3A93, #ddd8c6, #000000, #000000);  */
-  /*background: linear-gradient(
-    136deg,
-    #4484ce,
-    #1ad7c0,
-    #ff9b11,
-    #9b59b6,
-    #ff7f7f,
-    #ecf0f1
-  );*/
-
-  background-size: 1200% 1200%;
-  -webkit-animation: BackgroundAnimation 70s ease infinite;
-  -moz-animation: BackgroundAnimation 70s ease infinite;
-  -o-animation: BackgroundAnimation 70s ease infinite;
-  animation: BackgroundAnimation 70s ease infinite;
-  height: 100%;
+.transition-all {
+  transition: all 0.3s ease-in-out;
 }
 
-.bg-gradient {
-  background: linear-gradient(rgba(245, 245, 245, 1), rgba(245, 245, 245, 0));
+// Visual cue for clicks (Scale Only)
+.btn, .social-icon-link, .nav-link, .footer-name-link {
+  transition: transform 0.1s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+  
+  &:active {
+    transform: scale(0.92) !important; // Shrink on click
+  }
 }
 
 .navbar-transparent {
-  background-color: rgba(255, 255, 255, 0);
-  transition: background-color 0.2s;
+  background-color: transparent !important;
 }
+
 .navbar-white {
-  background-color: rgba(249, 244, 239, 0.81);
-  // background-color: rgba(248, 248, 248, 0.81);
-  // F9F4EC
-  transition: background-color 0.2s;
-}
-.brand {
-  color: #363636 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
 }
 
-.nav-tabs .nav-link {
-  border-bottom-color:#AE887B7F;
-}
-
-a.nav-link {
-  transition: color, 0.2s;
-  color:#5E5946 !important;
-  font-weight:350;
-}
-
-a.nav-link:hover {
-  // font-weight:350;
-  color:#3E3926 !important;
-}
-
-a.skills-tab:hover {
-  // color:#3E3926 !important;
-  background-color: #ECE7E2 !important;
-  border-color: #0000 #0000 #AE887B7F !important;
-}
-
-a.skills-tab:active {
-  background-color: #E6E1DC !important;
-}
-
-.navbar-expand-lg .navbar-nav .nav-link {
-  @media (min-width: 992px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-.toggler {
-  border: none;
-  padding: 4px;
-  border-radius: 4px;
-  &:focus {
-    outline: none;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-}
-.socialicons {
+.social-icon-link {
+  display: inline-block;
   color: #F6F1EC;
-  padding-left: 5px;
-  padding-right: 5px;
-  transition: all 0.8s;
-  margin: 4px;
   &:hover {
-    color: #5E5946;
-    padding-left: 5px;
-    padding-right: 5px;
-    transition: all 0.8s;
-    margin: 4px;
-  }
-  &:active {
-    color: #4E4936;
-    transition: 0.2s;
+    transform: translateY(-5px);
+    color: #F6F1EC !important;
   }
 }
 
-.title {
-  height: 100%;
-  left: 0;
-  right: 0;
-  color: #fff;
-  text-align: center;
-  margin-top: 0px;
-}
-
-.typist {
-  min-height: 6rem;
-  @media (min-width: 360px) {
-    min-height: 4rem;
-  }
-  @media (min-width: 768px) {
-    min-height: 2.5rem;
-  }
-}
-
-.card {
-  transition: transform 0.3s, box-shadow 0.3s;
+.project-card-modern {
   &:hover {
-    box-shadow: 0 2rem 3rem rgba($black, 0.175) !important;
-    transform: translateY(-2px);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-}
-.skills-tabs {
-  flex-grow: 1;
-}
-.skills-tab {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.progress {
-  transform-origin: left;
-  & > * {
-    transform: scaleX(0);
-  }
-}
-.progress-bar-animation {
-  @extend .progress;
-  & > * {
-    animation: progress 1.5s ease-in-out forwards;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    .project-image {
+      transform: scale(1.05);
+    }
   }
 }
 
-.progress, .progress-bar {
-  background-color: #AE887B
+.skill-card-modern {
+  border: 1px solid transparent !important; // Add transparent border to reserve space
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+    background-color: #F6F1EC !important; // Keep original color
+    border: 1px solid #D9BFB1 !important;
+  }
 }
 
-.progress, .progress-bar-animation {
-  background-color: #D9BFB1
+.experience-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+  margin-top: 0;
+}
+
+.vertical-timeline-element-content {
+  cursor: pointer;
+  &:hover {
+    .experience-details {
+      max-height: 400px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Button States: Hover can change color, Active/Focus must match Hover color
+.btn-dark {
+  background-color: $primary-accent !important;
+  border: none !important;
+  color: #fff !important;
+  &:hover {
+    background-color: #4a4538 !important;
+  }
+  &:active, &:focus {
+    background-color: #4a4538 !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn-outline-dark {
+  border-color: $primary-accent !important;
+  color: $primary-accent !important;
+  background-color: transparent !important;
+  &:hover {
+    background-color: rgba($primary-accent, 0.05) !important;
+    color: $primary-accent !important;
+  }
+  &:active, &:focus {
+    background-color: rgba($primary-accent, 0.05) !important;
+    color: $primary-accent !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn-outline-light {
+  border-color: #F6F1EC !important;
+  color: #F6F1EC !important;
+  background-color: transparent !important;
+  &:hover {
+    background-color: rgba(246, 241, 236, 0.1) !important;
+    color: #F6F1EC !important;
+  }
+}
+
+.footer-name-link {
+  color: $secondary-accent;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: $secondary-accent;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
+    color: $secondary-accent !important;
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary-accent;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-accent;
 }

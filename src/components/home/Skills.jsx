@@ -1,75 +1,37 @@
 import React from "react";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-import SkillsTab from "./SkillsTab";
-import Row from "react-bootstrap/Row";
-import './style.min.css';
-import { Jumbotron, Container } from "react-bootstrap";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { Container, Row, Col } from "react-bootstrap";
+import SkillCard from "./SkillCard";
 
-function Skills({ heading, languages, databases, technologies, frameworks }) {
-  const skillsTabRef = React.useRef();
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  //const navbarDimensions = useResizeObserver(navbarMenuRef);
+const SkillCategory = ({ title, skills }) => (
+  <div className="mb-5">
+    <div className="d-flex flex-column align-items-center mb-4">
+      <h3 className="h4 mb-2" style={{ color: "#AE887B", fontWeight: "600" }}>{title}</h3>
+      <div style={{ width: "40px", height: "3px", backgroundColor: "#D9BFB1", borderRadius: "2px" }}></div>
+    </div>
+    <Row className="justify-content-center g-4">
+      {skills.map((skill, index) => (
+        <Col key={index} xs={6} sm={4} md={3} lg={2} className="mb-3">
+          <SkillCard name={skill.name} icon={skill.icon} />
+        </Col>
+      ))}
+    </Row>
+  </div>
+);
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (!isScrolled && currPos.y - 400 < 0) setIsScrolled(true);
-    },
-    [],
-    skillsTabRef
-  );
+const Skills = ({ heading, languages, databases, technologies }) => {
   return (
-    <Jumbotron ref={skillsTabRef} fluid className="m-0" id="skills"  style={{backgroundColor:"#F6F1EC"}}>
-      <Container className="p-5">
-        <h2 ref={skillsTabRef} className="display-4 pb-5 text-center" style={{color:"#5E5946"}}>
+    <div className="py-5 m-0" id="skills" style={{ backgroundColor: "#ffffff" }}>
+      <Container>
+        <h2 className="display-4 pb-5 text-center" style={{ color: "#5E5946" }}>
           {heading}
         </h2>
-        <Tabs
-          className="skills-tabs"
-          defaultActiveKey="languages"
-          id="skills-tabs"
-        >
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="languages"
-            title="Languages"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={languages} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="databases"
-            title="Databases"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={databases} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="technologies"
-            title="Technologies"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={technologies} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="frameworks"
-            title="Frameworks"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={frameworks} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-        </Tabs>
+        
+        <SkillCategory title="Programming Languages" skills={languages} />
+        <SkillCategory title="Databases" skills={databases} />
+        <SkillCategory title="Technologies" skills={technologies} />
       </Container>
-    </Jumbotron>
+    </div>
   );
-}
+};
 
 export default Skills;
