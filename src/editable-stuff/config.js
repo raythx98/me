@@ -1,5 +1,4 @@
 import profile from "./profile.png";
-import resumePdf from "./resume.pdf";
 import jenkinsIcon from "devicon/icons/jenkins/jenkins-original.svg";
 
 // 1. Navigation Bar
@@ -37,7 +36,7 @@ const about = {
     "Driven by a desire to build robust and scalable systems, I am particularly drawn to the realm of large-scale microservices. I am captivated by the intricacies involved in architecting and developing software that can seamlessly handle massive workloads while maintaining high availability and fault tolerance.",
     "My passion extends to the realm of low-level optimization. I thrive on the challenge of analyzing and fine-tuning code to squeeze out every ounce of performance. It brings me great satisfaction to meticulously optimize algorithms, data structures, and system interactions."
   ],
-  resume: resumePdf,
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
 };
 
 // 4. Experiences Section
@@ -46,27 +45,28 @@ const experiences = {
   heading: "Experiences",
   data: [
     {
-      role: 'Software Engineer',
-      company: 'Getgo Technologies, Singapore',
-      description: 'Go, C#, .Net, MySQL, Redis, Elasticsearch, gRPC, Solace, Docker, AWS',
-      date: 'Jan 2023 - Present',
+      role: 'Senior Software Engineer',
+      company: 'GetGo, Singapore',
+      description: 'Go, C#, .Net, MySQL, Redis, Elasticsearch, gRPC, RabbitMQ, Docker, AWS',
+      date: 'Jan 2023 – Present',
       type: 'work',
       details: [
-        "Built a proxy server with custom rate limiting and circuit breaker capabilities, mitigating DDoS attacks on the SMS OTP API and strengthening fault tolerance.",
-        "Enhanced EV charging servers to be OCPI-compliant, reducing engineering effort to onboard new providers by 10x, enabling the company to scale to thousands of EVs with minimal operating costs.",
-        "Drove major refactoring efforts and authored a utility package to abstract common middleware and functionalities, reducing code duplication and improving consistency across repositories.",
-        "Rearchitected monolithic systems into event-driven microservices, utilizing the orchestration pattern for distributed transactions across multiple microservices, enabling engineering teams to scale and driving the formation of three cross-functional teams."
+        "Rearchitected core monolithic systems into event-driven microservices, implementing saga-based orchestration for distributed transactions across booking, payment, and promotion domains.",
+        "Built a proxy server with custom rate limiting and circuit breaker capabilities, mitigating DDoS attacks on the SMS OTP API and improving system resilience.",
+        "Led a zero-downtime migration of the event broker from Solace to RabbitMQ, designing compatibility layers to ensure seamless cutover and achieving $30K+ in annual cost savings.",
+        "Architected and launched a subscription system supporting recurring billing, idempotent payment processing, and failure recovery, ensuring reliable monthly subscription renewals at scale for 10K+ subscribers.",
+        "Enhanced EV charging services to be OCPI-compliant using abstraction layers, reducing engineering effort to onboard new providers by 10×."
       ]
     },
     {
       role: 'Software Engineer',
       company: 'Carousell, Singapore',
       description: 'Go, PostgreSQL, Redis, Elasticsearch, gRPC, Kafka, Docker, Kubernetes, GCP',
-      date: 'Aug 2022 - Dec 2022',
+      date: 'Aug 2022 – Dec 2022',
       type: 'work',
       details: [
         "Led a large-scale overhaul of product categorization, seamlessly migrating 5M+ listings with zero downtime, improving search relevance and boosting product-to-sale conversion by 15%.",
-        "Migrated endpoints from a Django monolith to Go microservices, enhancing modularity and error handling, which improved engineering productivity and reduced error rates by 5X."
+        "Migrated endpoints from a Django monolith to Go microservices, enhancing modularity and error handling, which improved engineering productivity and reduced error rates by 5×."
       ]
     },
     {
@@ -82,27 +82,24 @@ const experiences = {
       ]
     },
     {
-      role: 'Software Engineer',
+      role: 'Software Engineer Intern',
       company: 'DBS Bank, Singapore',
       description: 'Go, MariaDB, Redis, Elasticsearch, Kubernetes, OpenShift, Kafka',
-      date: 'May 2022 - August 2022',
+      date: 'May 2022 – Aug 2022',
       type: 'work',
       details: [
-        "Developed server and job enhancements for a proprietary Forex application using Go.",
-        "Enhanced API observability in microservices by implementing distributed tracing with Open Telemetry and Jaeger, accelerating debugging and performance optimization.",
-        "Augmented monitoring and alerting functionalities using Prometheus."
+        "Developed backend services and scheduled jobs for a proprietary Forex application in Go.",
+        "Enhanced API observability in microservices by implementing distributed tracing with OpenTelemetry and Jaeger, accelerating debugging and performance optimization."
       ]
     },
     {
-      role: 'Software Engineer',
+      role: 'Software Engineer Intern',
       company: 'Reluvate Technologies, Singapore',
       description: 'Python, Django, React.js, AWS, Nginx, RESTful APIs, UAT',
-      date: 'Dec 2021 - Feb 2022',
+      date: 'Dec 2021 – Feb 2022',
       type: 'work',
       details: [
-        "Drove digital transformation by automating job matching, scheduling, and financial reconciliation processes using Django and React.js.",
-        "Facilitated UATs to formulate non-functional requirements and migrated data from legacy systems to AWS (EC2, RDS, S3).",
-        "Integrated Nginx as the web server for serving static frontend and backend API gateway."
+        "Drove digital transformation for client businesses by automating job matching, scheduling, personalized suggestions, and financial reconciliation processes."
       ]
     },
   ]
